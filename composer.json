@@ -1,10 +1,10 @@
 {
-    "name": "ppeerit/think-time",
+    "name": "ppeerit/time",
     "type": "library",
     "description": "Library for tp5 time",
     "keywords": ["time"],
-    "homepage": "https://github.com/ppeerit/think-time",
-    "license": "Apache-2.0",
+    "homepage": "https://github.com/ppeerit/time",
+    "license": "MIT",
     "authors": [
         {
             "name": "Chen Ze Wei",
