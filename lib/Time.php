@@ -1,35 +1,35 @@
-<?php 
+<?php
 /**
-   * MIT License
-   * ===========
-   *
-   * Copyright (c) 2012 [Your name] <[Your email]>
-   *
-   * Permission is hereby granted, free of charge, to any person obtaining
-   * a copy of this software and associated documentation files (the
-   * "Software"), to deal in the Software without restriction, including
-   * without limitation the rights to use, copy, modify, merge, publish,
-   * distribute, sublicense, and/or sell copies of the Software, and to
-   * permit persons to whom the Software is furnished to do so, subject to
-   * the following conditions:
-   *
-   * The above copyright notice and this permission notice shall be included
-   * in all copies or substantial portions of the Software.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-   * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-   * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-   * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-   * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-   * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-   *
-   * @author     陈泽韦 <549226266@qq.com>
-   * @copyright  2016 陈泽韦.
-   * @license    http://www.opensource.org/licenses/mit-license.php  MIT License
-   * @version    1.0.0
-   * @link       http://
-   */  
+ * MIT License
+ * ===========
+ *
+ * Copyright (c) 2012 [Your name] <[Your email]>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * @author     陈泽韦 <549226266@qq.com>
+ * @copyright  2016 陈泽韦.
+ * @license    http://www.opensource.org/licenses/mit-license.php  MIT License
+ * @version    1.0.0
+ * @link       http://
+ */
 namespace Ppeerit\Time;
 
 /**
@@ -37,7 +37,7 @@ namespace Ppeerit\Time;
  */
 class Time
 {
-	/**
+    /**
      * 今日开始和结束的时间戳
      *
      * @return array
@@ -46,7 +46,7 @@ class Time
     {
         return [
             mktime(0, 0, 0, date('m'), date('d'), date('Y')),
-            mktime(23, 59, 59, date('m'), date('d'), date('Y'))
+            mktime(23, 59, 59, date('m'), date('d'), date('Y')),
         ];
     }
 
@@ -60,7 +60,7 @@ class Time
         $yesterday = date('d') - 1;
         return [
             mktime(0, 0, 0, date('m'), $yesterday, date('Y')),
-            mktime(23, 59, 59, date('m'), $yesterday, date('Y'))
+            mktime(23, 59, 59, date('m'), $yesterday, date('Y')),
         ];
     }
 
@@ -74,7 +74,7 @@ class Time
         $timestamp = time();
         return [
             strtotime(date('Y-m-d', strtotime("+0 week Monday", $timestamp))),
-            strtotime(date('Y-m-d', strtotime("+0 week Sunday", $timestamp))) + 24 * 3600 - 1
+            strtotime(date('Y-m-d', strtotime("+0 week Sunday", $timestamp))) + 24 * 3600 - 1,
         ];
     }
 
@@ -88,7 +88,7 @@ class Time
         $timestamp = time();
         return [
             strtotime(date('Y-m-d', strtotime("last week Monday", $timestamp))),
-            strtotime(date('Y-m-d', strtotime("last week Sunday", $timestamp))) + 24 * 3600 - 1
+            strtotime(date('Y-m-d', strtotime("last week Sunday", $timestamp))) + 24 * 3600 - 1,
         ];
     }
 
@@ -101,7 +101,7 @@ class Time
     {
         return [
             mktime(0, 0, 0, date('m'), 1, date('Y')),
-            mktime(23, 59, 59, date('m'), date('t'), date('Y'))
+            mktime(23, 59, 59, date('m'), date('t'), date('Y')),
         ];
     }
 
@@ -113,7 +113,7 @@ class Time
     public static function lastMonth()
     {
         $begin = mktime(0, 0, 0, date('m') - 1, 1, date('Y'));
-        $end = mktime(23, 59, 59, date('m') - 1, date('t', $begin), date('Y'));
+        $end   = mktime(23, 59, 59, date('m') - 1, date('t', $begin), date('Y'));
 
         return [$begin, $end];
     }
@@ -127,7 +127,7 @@ class Time
     {
         return [
             mktime(0, 0, 0, 1, 1, date('Y')),
-            mktime(23, 59, 59, 12, 31, date('Y'))
+            mktime(23, 59, 59, 12, 31, date('Y')),
         ];
     }
 
@@ -141,7 +141,7 @@ class Time
         $year = date('Y') - 1;
         return [
             mktime(0, 0, 0, 1, 1, $year),
-            mktime(23, 59, 59, 12, 31, $year)
+            mktime(23, 59, 59, 12, 31, $year),
         ];
     }
 
@@ -189,5 +189,34 @@ class Time
     public static function weekToSecond($week = 1)
     {
         return self::daysToSecond() * 7 * $week;
+    }
+
+    /**
+     * 当月月份
+     *
+     * @return [type] [description]
+     */
+    public static function dateThisMonth()
+    {
+        return date('m', strtotime('now'));
+    }
+    /**
+     * 上月月份
+     *
+     * @return [type] [description]
+     */
+    public static function dateLastMonth()
+    {
+        return date('m', strtotime('-1 month'));
+    }
+
+    /**
+     * 下月月份
+     *
+     * @return [type] [description]
+     */
+    public static function dateNextMonth()
+    {
+        return date('m', strtotime('+1 month'));
     }
 }
