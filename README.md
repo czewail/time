@@ -21,6 +21,11 @@ list($start_time, $end_time) = Time::today();
 // 返回一个数组['开始时间戳','结束时间戳']
 list($start_time, $end_time) = Time::yesterday();
 ```
+## 明天开始和结束的时间戳
+```php
+// 返回一个数组['开始时间戳','结束时间戳']
+list($start_time, $end_time) = Time::tomorrow();
+```
 ## 本周开始和结束的时间戳
 ```php
 // 返回一个数组['开始时间戳','结束时间戳']
@@ -30,6 +35,11 @@ list($start_time, $end_time) = Time::week();
 ```php
 // 返回一个数组['开始时间戳','结束时间戳']
 list($start_time, $end_time) = Time::lastWeek();
+```
+## 下周开始和结束的时间戳
+```php
+// 返回一个数组['开始时间戳','结束时间戳']
+list($start_time, $end_time) = Time::nextWeek();
 ```
 ## 本月开始和结束的时间戳
 ```php
@@ -41,6 +51,11 @@ list($start_time, $end_time) = Time::month();
 // 返回一个数组['开始时间戳','结束时间戳']
 list($start_time, $end_time) = Time::lastMonth();
 ```
+## 下个月开始和结束的时间戳
+```php
+// 返回一个数组['开始时间戳','结束时间戳']
+list($start_time, $end_time) = Time::nextMonth();
+```
 ## 今年开始和结束的时间戳
 ```php
 // 返回一个数组['开始时间戳','结束时间戳']
@@ -50,6 +65,11 @@ list($start_time, $end_time) = Time::year();
 ```php
 // 返回一个数组['开始时间戳','结束时间戳']
 list($start_time, $end_time) = Time::lastYear();
+```
+## 明年开始和结束的时间戳
+```php
+// 返回一个数组['开始时间戳','结束时间戳']
+list($start_time, $end_time) = Time::nextYear();
 ```
 ## N天前的时间戳
 ```php

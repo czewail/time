@@ -65,6 +65,20 @@ class Time
     }
 
     /**
+     * 明天开始和结束的时间戳
+     *
+     * @return array
+     */
+    public static function tomorrow()
+    {
+        $tomorrow = date('d') + 1;
+        return [
+            mktime(0, 0, 0, date('m'), $tomorrow, date('Y')),
+            mktime(23, 59, 59, date('m'), $tomorrow, date('Y')),
+        ];
+    }
+
+    /**
      * 本周开始和结束的时间戳
      *
      * @return array
@@ -89,6 +103,19 @@ class Time
         return [
             strtotime(date('Y-m-d', strtotime("last week Monday", $timestamp))),
             strtotime(date('Y-m-d', strtotime("last week Sunday", $timestamp))) + 24 * 3600 - 1,
+        ];
+    }
+    /**
+     * 下周开始和结束的时间戳
+     *
+     * @return array
+     */
+    public static function nextWeek()
+    {
+        $timestamp = time();
+        return [
+            strtotime(date('Y-m-d', strtotime("next week Monday", $timestamp))),
+            strtotime(date('Y-m-d', strtotime("next week Sunday", $timestamp))) + 24 * 3600 - 1,
         ];
     }
 
@@ -117,6 +144,18 @@ class Time
 
         return [$begin, $end];
     }
+    /**
+     * 下个月开始和结束的时间戳
+     *
+     * @return array
+     */
+    public static function nextMonth()
+    {
+        $begin = mktime(0, 0, 0, date('m') + 1, 1, date('Y'));
+        $end   = mktime(23, 59, 59, date('m') + 1, date('t', $begin), date('Y'));
+
+        return [$begin, $end];
+    }
 
     /**
      * 今年开始和结束的时间戳
@@ -139,6 +178,20 @@ class Time
     public static function lastYear()
     {
         $year = date('Y') - 1;
+        return [
+            mktime(0, 0, 0, 1, 1, $year),
+            mktime(23, 59, 59, 12, 31, $year),
+        ];
+    }
+
+    /**
+     * 明年开始和结束的时间戳
+     *
+     * @return array
+     */
+    public static function nextYear()
+    {
+        $year = date('Y') + 1;
         return [
             mktime(0, 0, 0, 1, 1, $year),
             mktime(23, 59, 59, 12, 31, $year),
