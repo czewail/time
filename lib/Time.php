@@ -244,6 +244,7 @@ class Time
         return self::daysToSecond() * 7 * $week;
     }
 
+    // 以下方法将会添加到ppeerit/date库中
     /**
      * 当月月份
      *
