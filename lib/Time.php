@@ -97,7 +97,7 @@ class Time
      *
      * @return array
      */
-    public static function month($everyDay = false)
+    public static function month()
     {
         return [
             mktime(0, 0, 0, date('m'), 1, date('Y')),
@@ -151,7 +151,7 @@ class Time
      * @param int $day
      * @return int
      */
-    public static function daysAgo($day = 1)
+    public static function daysAgo($day = 0)
     {
         $nowTime = time();
         return $nowTime - self::daysToSecond($day);
