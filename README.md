@@ -73,7 +73,7 @@ $seconds = Time::daysToSecond($days); // 返回10天共多少秒
 ```php
 // 返回一个数字
 $weeks = 2; // 本例定义为2周
-$seconds = Time::weekToSecond($weeks); // 返回2周共多少秒
+$seconds = Time::weeksToSecond($weeks); // 返回2周共多少秒
 ```
 
 ### 更多方法完善中

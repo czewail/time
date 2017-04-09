@@ -186,7 +186,7 @@ class Time
      * @param int $week
      * @return int
      */
-    public static function weekToSecond($week = 1)
+    public static function weeksToSecond($week = 1)
     {
         return self::daysToSecond() * 7 * $week;
     }
