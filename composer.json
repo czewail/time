@@ -1,7 +1,7 @@
 {
     "name": "ppeerit/time",
     "type": "library",
-    "description": "Library for tp5 time",
+    "description": "time library",
     "keywords": ["time"],
     "homepage": "https://github.com/ppeerit/time",
     "license": "MIT",
